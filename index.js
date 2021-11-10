@@ -39,11 +39,44 @@ Airplane.prototype.land = function () {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-function Person() {
-  
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+  this.stomach = [];
+  }
+
+  Person.prototype.eat = function(edible){
+    if(this.stomach.length < 10){
+      this.stomach.push(edible);
+    }
+  }
+
+Person.prototype.poop = function(){
+  this.stomach = [];
 }
 
+Person.prototype.toString = function(){
+  return `${this.name}, ${this.age}`;
+}
 
+const kyler = new Person('Kyler', 25);
+const ben = new Person('Bennet', 28);
+
+console.log(kyler.toString());
+console.log(ben.toString());
+
+ben.eat('pizza');
+ben.eat('tacos');
+ben.eat('sushi');
+ben.eat('ramen');
+ben.eat('sandwich');
+ben.eat('cake');
+
+console.log(ben.stomach);
+
+ben.poop();
+
+console.log(ben.stomach);
 
 
 
@@ -63,7 +96,7 @@ function Person() {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
+function Car(model, milesPerGallon) {
   
 }
 
@@ -83,10 +116,10 @@ function Baby() {
 /* 
   TASK 4
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. Window Binding
+  2. Implicit Binding
+  3. Explicit Binding
+  4. New Binding 
 */
 
 
